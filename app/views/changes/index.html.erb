@@ -1,0 +1,20 @@
+<h1>change</ h1>
+
+<body>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <% @change.each do |change| %>
+      <tr>
+        <td><%= change.id %></td>
+        <td><%= change.employee.id %></td>
+        <td><%= change.employee.name%></td>
+        <td><%= change.ipadd.ip %></td>
+      </tr>
+    <% end %>
+  </table>
+</body>

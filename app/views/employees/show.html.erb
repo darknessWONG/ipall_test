@@ -1,0 +1,31 @@
+<h1>Employee:</h1>
+<strong><%= @employee.name %><strong>
+
+<h2>has ip address</h2>
+
+<table>
+  <% @employee.ipadds.each do |ipadd| %>
+    <tr>
+      <td><%= ipadd.ip %></td>
+      <td><%= link_to 'release it', release_employee_ipadd_path(@employee.id, ipadd) %>
+    </tr>
+  <% end %>
+<table>
+
+<% if @employee.name=='kong' %>
+  <%= form_for([@employee, @employee.ipadds.build]) do |f| %>
+    <p>
+      <%= f.label :ip %><br />
+      <%= f.text_field :ip %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
+<% else %>
+  <%= link_to 'get new ip', choose_employee_path %><p></p>
+<% end %>
+
+<%= link_to 'back', employees_path %>&nbsp;
+<%= link_to 'edit', edit_employee_path %>

@@ -1,0 +1,12 @@
+<h1>choose a ip address</h1>
+
+<table>
+  <% Employee.find_by_name('kong').ipadds.each do |ipadd| %>
+    <tr>
+      <td><%= ipadd.ip %></td>
+      <td><%= link_to 'get it', choose_employee_ipadd_path(@employee.id,ipadd) %>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'back', @employee %>

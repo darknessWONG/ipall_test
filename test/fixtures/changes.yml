@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  employee: 
+  ipadd: 
+  action: MyString
+  time: 
+
+two:
+  employee: 
+  ipadd: 
+  action: MyString
+  time: 

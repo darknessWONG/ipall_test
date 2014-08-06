@@ -1,0 +1,11 @@
+<h1>Upload File</h1>
+
+
+<%= form_tag({:action => 'save'},{:multipart=>true}) do %>
+  yoyo: <%= file_field("file1","file1") %>
+<br />
+<%= submit_tag("upload") %>
+<% end %>
+
+
+<%= link_to 'home', root_path %>
