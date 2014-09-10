@@ -1,5 +1,6 @@
 class UploadController < ApplicationController
   before_action :set_charset
+  before_filter :authenticate_user!
 
   def upload
   end
@@ -34,10 +35,14 @@ class UploadController < ApplicationController
   end
 
   def downloadlist
-	@list = []
-	Dir.foreach("#{Rails.root}/public/upload") do |file|
-		Rails.logger.info(file)
-		@list << file
+	if(current_user.email == 'marcowong1019@hotmail.com')
+		@list = []
+		Dir.foreach("#{Rails.root}/public/upload") do |file|
+			Rails.logger.info(file)
+			@list << file
+		end
+	else
+		redirect_to employees_path
 	end
   end
 

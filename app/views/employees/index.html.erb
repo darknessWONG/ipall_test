@@ -1,5 +1,13 @@
+<%= javascript_include_tag "jquery.min" %>
+<%= javascript_include_tag "jquery_ujs" %>
 <h1>All employees</h1>
-
+  <div id="user_nav">
+    <% if user_signed_in? %>Signed in as <%= current_user.email %>. Not you?
+    <%= link_to "Sign out", destroy_user_session_path, method: :delete, data: {confirm: 'Are your sure?'} %>
+    <% else %>
+    <%= link_to "Sign up", new_user_registration_path %> or<%= link_to "Sign in", new_user_session_path %>
+    <% end %>
+  </div> 
 <table>
   <tr>
     <th>Name</th>
@@ -22,4 +30,7 @@
 <%= link_to 'upload', upload_path %>
 <br />
 <%= link_to 'Download List', downloadlist_path %>
-
+<br />
+<%= link_to 'Sign out', destroy_user_session_path %>
+<br />
+<%= link_to 'out', destroy_user_session_path, method: :delete, data: {confirm: 'Are your sure?'} %>
